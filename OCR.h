@@ -22,6 +22,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc_c.h>
+#include <opencv2/imgproc/imgproc.hpp>
 
 #include "MyObject.h"
 
@@ -272,6 +273,7 @@ class OCR
 	 std::string input_type;	/**<@@brief  */
 	 std::string languages;	/**<@@brief  */
 	 IplImage* m_imageBuff;
+	 
   // <rtc-template block="private_attribute">
   
   // </rtc-template>

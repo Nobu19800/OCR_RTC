@@ -1,4 +1,4 @@
-set(comp_srcs ImageOutput.cpp )
+set(comp_srcs ImageOutput.cpp ImageDataCom.cpp)
 set(standalone_srcs ImageOutputComp.cpp)
 
 find_package(OpenCV REQUIRED)

@@ -8,6 +8,7 @@
  */
 
 #include "OCR.h"
+#include "ImageDataCom.h"
 
 // Module specification
 // <rtc-template block="module_spec">
@@ -146,16 +147,15 @@ RTC::ReturnCode_t OCR::onExecute(RTC::UniqueId ec_id)
 				cvReleaseImage(&m_imageBuff);
          
 			}
- 
-				 
-			m_imageBuff = cvCreateImage(cvSize(m_image.width, m_image.height), IPL_DEPTH_8U, 3);
-    
+
+			m_imageBuff = GetCameraImage(&m_image);
 			
- 
 			
-			memcpy(m_imageBuff->imageData,(void *)&(m_image.pixels[0]),m_image.pixels.length());
- 
+			
 			cvSaveImage("m_imageBuff.jpg", m_imageBuff);
+			
+
+			
 			
 			
 
