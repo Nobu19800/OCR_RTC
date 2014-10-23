@@ -272,6 +272,7 @@ class OCR
 	 std::string file_path;	/**<　@brief  */
 	 std::string input_type;	/**<　@brief  */
 	 std::string languages;	/**<　@brief  */
+	 std::string tmp_directory_path;	/**<　@brief  */
 	 IplImage* m_imageBuff;
 	 
   // <rtc-template block="private_attribute">

@@ -74,13 +74,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\CapturePresentationRTC\ImageDataCom.cpp" />
     <ClCompile Include="ImageDataCom.cpp" />
     <ClCompile Include="MyObject.cpp" />
     <ClCompile Include="OCR.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\CapturePresentationRTC\ImageDataCom.h" />
     <ClInclude Include="ImageDataCom.h" />
     <ClInclude Include="MyObject.h" />
     <ClInclude Include="OCR.h" />

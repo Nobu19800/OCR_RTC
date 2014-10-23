@@ -9,6 +9,10 @@
 
 #include "OCR.h"
 #include "ImageDataCom.h"
+#include <windows.h>
+#include <wchar.h>
+#include <tchar.h>
+
 
 // Module specification
 // <rtc-template block="module_spec">
@@ -27,12 +31,14 @@ static const char* ocr_spec[] =
     "lang_type",         "compile",
 	"conf.default.file_path", "sample.jpg",
 	"conf.default.input_type", "DataPort",
-	"conf.default.languages", "Japanese",
+	"conf.default.languages", "JAPANESE",
+	"conf.default.tmp_directory_path", "%TMP%",
 	"conf.__widget__.file_path", "text",
 	"conf.__widget__.input_type", "radio",
 	"conf.__widget__.languages", "radio",
+	"conf.__widget__.tmp_directory_path", "text",
 	"conf.__constraints__.input_type", "(DataPort,Configuration)",
-	"conf.__constraints__.languages", "(Japanese,English)",
+	"conf.__constraints__.languages", "(CZECH,DANISH,GERMAN,GREEK,ENGLISH,SPANISH,FINNISH,FRENCH,HUNGARIAN,ITALIAN,JAPANESE,KOREAN,DUTCH,NORWEGIAN,POLISH,PORTUGUESE,RUSSIAN,SWEDISH,TURKISH,CHINESE_TRADITIONAL,CHINESE_SIMPLIFIED,SYSDEFAULT)",
     ""
   };
 // </rtc-template>
@@ -80,7 +86,8 @@ RTC::ReturnCode_t OCR::onInitialize()
 
   bindParameter("file_path", file_path, "sample.jpeg");
   bindParameter("input_type", input_type, "DataPort");
-  bindParameter("languages", languages, "Japanese");
+  bindParameter("languages", languages, "JAPANESE");
+  bindParameter("tmp_directory_path", tmp_directory_path, "%TMP%");
   
   // </rtc-template>
 
@@ -150,16 +157,24 @@ RTC::ReturnCode_t OCR::onExecute(RTC::UniqueId ec_id)
 
 			m_imageBuff = GetCameraImage(&m_image);
 			
+			std::string tmp = tmp_directory_path + "\\m_imageBuff.jpg";
+			wchar_t CheckFileName[100];
+			mbstowcs(CheckFileName, tmp.c_str(), 100);
+
+			wchar_t CheckFileName2[100];
+			ExpandEnvironmentStrings(  CheckFileName ,CheckFileName2,sizeof( CheckFileName2 ));
+			char CheckFileName3[100];
+			wcstombs(CheckFileName3,CheckFileName2,100);
 			
 			
-			cvSaveImage("m_imageBuff.jpg", m_imageBuff);
+			cvSaveImage(CheckFileName3, m_imageBuff);
 			
 
 			
 			
 			
 
-			doc->Create("m_imageBuff.jpg");
+			doc->Create(gcnew System::String(CheckFileName2));
 
 			
 		}
@@ -174,10 +189,53 @@ RTC::ReturnCode_t OCR::onExecute(RTC::UniqueId ec_id)
 	}
 	
 
-	if(languages == "Japanese")
-		doc->OCR(MODI::MiLANGUAGES::miLANG_JAPANESE, false, false);
-	else
+	if(languages == "CZECH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_CZECH, false, false);
+	else if(languages == "DANISH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_DANISH, false, false);
+	else if(languages == "GERMAN")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_GERMAN, false, false);
+	else if(languages == "GREEK")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_GREEK, false, false);
+	else if(languages == "ENGLISH")
 		doc->OCR(MODI::MiLANGUAGES::miLANG_ENGLISH, false, false);
+	else if(languages == "SPANISH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_SPANISH, false, false);
+	else if(languages == "FINNISH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_FINNISH, false, false);
+	else if(languages == "FRENCH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_FRENCH, false, false);
+	else if(languages == "HUNGARIAN")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_HUNGARIAN, false, false);
+	else if(languages == "ITALIAN")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_ITALIAN, false, false);
+	else if(languages == "JAPANESE")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_JAPANESE, false, false);
+	else if(languages == "KOREAN")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_KOREAN, false, false);
+	else if(languages == "DUTCH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_DUTCH, false, false);
+	else if(languages == "NORWEGIAN")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_NORWEGIAN, false, false);
+	else if(languages == "POLISH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_POLISH, false, false);
+	else if(languages == "PORTUGUESE")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_PORTUGUESE, false, false);
+	else if(languages == "RUSSIAN")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_RUSSIAN, false, false);
+	else if(languages == "SWEDISH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_SWEDISH, false, false);
+	else if(languages == "TURKISH")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_TURKISH, false, false);
+	else if(languages == "CHINESE_TRADITIONAL")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_CHINESE_TRADITIONAL, false, false);
+	else if(languages == "CHINESE_SIMPLIFIED")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_CHINESE_SIMPLIFIED, false, false);
+	else if(languages == "SYSDEFAULT")
+		doc->OCR(MODI::MiLANGUAGES::miLANG_SYSDEFAULT, false, false);
+	
+
+
 
 	try
 	{
