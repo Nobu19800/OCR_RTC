@@ -56,6 +56,7 @@ OCR::OCR(RTC::Manager* manager)
 
     // </rtc-template>
 {
+	m_imageBuff = NULL;
 }
 
 /*!
