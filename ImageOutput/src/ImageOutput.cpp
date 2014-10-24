@@ -8,6 +8,7 @@
  */
 
 #include "ImageOutput.h"
+#include "ImageDataCom.h"
 
 // Module specification
 // <rtc-template block="module_spec">
@@ -26,9 +27,15 @@ static const char* imageoutput_spec[] =
     "lang_type",         "compile",
     // Configuration variables
     "conf.default.file_path", "sample.jpg",
+	"conf.default.string_encode", "off",
+	"conf.default.int_encode_quality", "75",
     // Widget
     "conf.__widget__.file_path", "text",
+	"conf.__widget__.string_encode", "radio",
+	"conf.__widget__.int_encode_quality", "spin",
     // Constraints
+	"conf.__constraints__.string_encode", "(off,jpeg,png)",
+	"conf.__constraints__.int_encode_quality", "1<=x<=100",
     ""
   };
 // </rtc-template>
@@ -44,6 +51,7 @@ ImageOutput::ImageOutput(RTC::Manager* manager)
 
     // </rtc-template>
 {
+	m_imageBuff = NULL;
 }
 
 /*!
@@ -75,6 +83,8 @@ RTC::ReturnCode_t ImageOutput::onInitialize()
   // <rtc-template block="bind_config">
   // Bind variables and configuration variable
   bindParameter("file_path", m_file_path, "sample.jpg");
+  bindParameter("string_encode", m_string_encode, "off");
+  bindParameter("int_encode_quality", m_int_encode_quality, "75");
   
   // </rtc-template>
   return RTC::RTC_OK;
@@ -124,12 +134,11 @@ RTC::ReturnCode_t ImageOutput::onDeactivated(RTC::UniqueId ec_id)
 
 RTC::ReturnCode_t ImageOutput::onExecute(RTC::UniqueId ec_id)
 {
-  m_image.width = m_imageBuff->width;
-  m_image.height = m_imageBuff->height;
-  int len = m_imageBuff->nChannels * m_imageBuff->width * m_imageBuff->height;
-  m_image.pixels.length(len);
-  memcpy((void *)&(m_image.pixels[0]),m_imageBuff->imageData,len);
-
+  SetCameraImage(&m_image, m_imageBuff, m_string_encode, m_int_encode_quality);
+  
+  
+  
+  
   m_imageOut.write();
 
   return RTC::RTC_OK;
