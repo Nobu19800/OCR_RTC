@@ -267,6 +267,8 @@ class ImageOutput
 
  private:
   IplImage* m_imageBuff;
+  std::string m_string_encode;
+  int m_int_encode_quality;
   // <rtc-template block="private_attribute">
   
   // </rtc-template>
