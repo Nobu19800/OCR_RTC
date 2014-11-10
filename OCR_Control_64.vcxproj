@@ -76,12 +76,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ImageDataCom.cpp" />
-    <ClCompile Include="MyObject.cpp" />
+    <ClCompile Include="SubFunction.cpp" />
     <ClCompile Include="OCR.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ImageDataCom.h" />
-    <ClInclude Include="MyObject.h" />
+    <ClInclude Include="SubFunction.h" />
     <ClInclude Include="OCR.h" />
   </ItemGroup>
   <ItemGroup>

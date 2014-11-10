@@ -24,7 +24,7 @@
 #include <opencv2/imgproc/imgproc_c.h>
 #include <opencv2/imgproc/imgproc.hpp>
 
-#include "MyObject.h"
+#include "SubFunction.h"
 
 // Service implementation headers
 // <rtc-template block="service_impl_h">
