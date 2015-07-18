@@ -23,7 +23,7 @@ static const char* ocr_spec[] =
     "description",       "OCR Component",
     "version",           "1.0.0",
     "vendor",            "Miyamoto Nobuhiko",
-    "category",          "TES",
+    "category",          "Office",
     "activity_type",     "PERIODIC",
     "kind",              "DataFlowComponent",
     "max_instance",      "1",

@@ -106,7 +106,9 @@ The available configuration parameters are described below:
 ================ ================== ================ ======
 Parameter        Data type          Default Value    Effect
 ================ ================== ================ ======
-file_path        string             sample.jpg       
+file_path        string             sample.jpg       読み込む画像ファイル名
+string_encode    string             off              画像の圧縮形式
+int_encode_quality int                75               圧縮率
 ================ ================== ================ ======
 
 Ports
@@ -117,7 +119,7 @@ The ports provided by the component are described below:
 =============== =========== ============================== =======
 Name            Type        Data type                      Purpose
 =============== =========== ============================== =======
-m_image         OutPort     RTC::CameraImage               
+image           OutPort     RTC::CameraImage               読み込んだ画像データ
 =============== =========== ============================== =======
 
 Examples

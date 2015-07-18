@@ -19,7 +19,7 @@ static const char* imageoutput_spec[] =
     "description",       "Image Output Component",
     "version",           "1.0.0",
     "vendor",            "Miyamoto Nobuhiko",
-    "category",          "TES",
+    "category",          "ImageProcessing",
     "activity_type",     "PERIODIC",
     "kind",              "DataFlowComponent",
     "max_instance",      "1",

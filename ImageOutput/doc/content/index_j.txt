@@ -98,7 +98,9 @@ ImageOutputは ``ImageOutputComp`` を実行（ ``${prefix}/components/bin`` に
 ================ ================== ================ ====
 パラメータ       データ型           デフォルト値     意味
 ================ ================== ================ ====
-file_path        string             sample.jpg       
+file_path        string             sample.jpg       読み込む画像ファイル名
+string_encode    string             off              画像の圧縮形式
+int_encode_quality int                75               圧縮率
 ================ ================== ================ ====
 
 ポート
@@ -109,7 +111,7 @@ file_path        string             sample.jpg
 =============== =========== ============================== ====
 ポート名        ポート型    データ型                       意味
 =============== =========== ============================== ====
-m_image         OutPort     RTC::CameraImage               
+image           OutPort     RTC::CameraImage               読み込んだ画像データ
 =============== =========== ============================== ====
 
 例

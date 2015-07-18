@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -12,7 +12,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9AD21429-6C2D-4208-9F59-C0BB167FD3B7}</ProjectGuid>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <Keyword>ManagedCProj</Keyword>
     <RootNamespace>OCR_RTC</RootNamespace>
   </PropertyGroup>
@@ -23,6 +23,7 @@
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -30,6 +31,7 @@
     <CLRSupport>true</CLRSupport>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -46,7 +48,6 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <TargetName>OCR_RTC</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -65,12 +66,12 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;NDEBUG;__WIN32__;__x86__;__NT__;__OSVERSION__=4;_CRT_SECURE_NO_DEPRECATE;INCLUDE_stub_in_nt_dll;RTC_CORBA_CXXMAPPING11;_WIN32_WINNT=0x0500;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Program Files (x86)\OpenRTM-aist\1.1;C:\Program Files (x86)\OpenRTM-aist\1.1\rtm\idl;C:\Program Files (x86)\OpenRTM-aist\1.1\omniORB\4.1.5\include;C:\Program Files (x86)\OpenRTM-aist\1.1\OpenCV2.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\OpenRTM-aist\1.1;C:\Program Files (x86)\OpenRTM-aist\1.1\rtm\idl;C:\Program Files (x86)\OpenRTM-aist\1.1\omniORB\4.1.7_vc12\include;C:\Program Files (x86)\OpenRTM-aist\1.1\OpenCV2.3\include;C:\Program Files (x86)\OpenRTM-aist\1.1\OpenCV2.4.9\include;C:\Program Files (x86)\OpenRTM-aist\1.1\OpenCV2.4.9\include\opencv;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;RTC110.lib;coil110.lib;omniORB415_rt.lib;omniDynamic415_rt.lib;omnithread34_rt.lib;ws2_32.lib;mswsock.lib;opencv_core231.lib;opencv_features2d231.lib;opencv_flann231.lib;opencv_gpu231.lib;opencv_highgui231.lib;opencv_imgproc231.lib;opencv_legacy231.lib;opencv_ml231.lib;opencv_objdetect231.lib;opencv_ts231.lib;opencv_video231.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:/Program Files (x86)/OpenRTM-aist/1.1/bin;C:/Program Files (x86)/OpenRTM-aist/1.1/bin/$(Configuration);C:/Program Files (x86)/OpenRTM-aist/1.1/omniORB/4.1.5/lib/x86_win32;C:/Program Files (x86)/OpenRTM-aist/1.1/omniORB/4.1.5/lib/x86_win32/$(Configuration);C:\Program Files (x86)\OpenRTM-aist\1.1\OpenCV2.3\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;RTC111_vc12.lib;coil111_vc12.lib;omniORB417_rt.lib;omniDynamic417_rt.lib;omnithread34_rt.lib;ws2_32.lib;mswsock.lib;opencv_contrib249.lib;opencv_core249.lib;opencv_features2d249.lib;opencv_flann249.lib;opencv_gpu249.lib;opencv_highgui249.lib;opencv_imgproc249.lib;opencv_legacy249.lib;opencv_ml249.lib;opencv_objdetect249.lib;opencv_ts249.lib;opencv_video249.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:/Program Files (x86)/OpenRTM-aist/1.1/bin;C:/Program Files (x86)/OpenRTM-aist/1.1/bin/$(Configuration);C:/Program Files (x86)/OpenRTM-aist/1.1/omniORB/4.1.7_vc12/lib/x86_win32;C:/Program Files (x86)/OpenRTM-aist/1.1/omniORB/4.1.7_vc12/lib/x86_win32/$(Configuration);C:\Program Files (x86)\OpenRTM-aist\1.1\OpenCV2.4.9\x86\vc12\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
