@@ -50,13 +50,13 @@ class OCR
 {
  public:
   /*!
-   * @brief constructor
-   * @param manager Maneger Object
+   * @brief コンストラクタ
+   * @param マネージャオブジェクト
    */
   OCR(RTC::Manager* manager);
 
   /*!
-   * @brief destructor
+   * @brief デストラクタ
    */
   ~OCR();
 
@@ -68,15 +68,10 @@ class OCR
   
   // </rtc-template>
 
-  /***
-   *
-   * The initialize action (on CREATED->ALIVE transition)
-   * formaer rtc_init_entry() 
-   *
-   * @return RTC::ReturnCode_t
-   * 
-   * 
-   */
+  /**
+  *@brief 初期化処理用コールバック関数
+  * @return RTC::ReturnCode_t
+  */
    virtual RTC::ReturnCode_t onInitialize();
 
   /***
@@ -116,42 +111,24 @@ class OCR
    */
   // virtual RTC::ReturnCode_t onShutdown(RTC::UniqueId ec_id);
 
-  /***
-   *
-   * The activated action (Active state entry action)
-   * former rtc_active_entry()
-   *
-   * @param ec_id target ExecutionContext Id
-   *
-   * @return RTC::ReturnCode_t
-   * 
-   * 
+   /**
+   *@brief 活性化時のコールバック関数
+   * @param ec_id
+   * @return
    */
    virtual RTC::ReturnCode_t onActivated(RTC::UniqueId ec_id);
 
-  /***
-   *
-   * The deactivated action (Active state exit action)
-   * former rtc_active_exit()
-   *
+   /**
+   *@brief 不活性化時のコールバック関数
    * @param ec_id target ExecutionContext Id
-   *
    * @return RTC::ReturnCode_t
-   * 
-   * 
    */
    virtual RTC::ReturnCode_t onDeactivated(RTC::UniqueId ec_id);
 
-  /***
-   *
-   * The execution action that is invoked periodically
-   * former rtc_active_do()
-   *
+   /**
+   *@brief 周期処理用コールバック関数
    * @param ec_id target ExecutionContext Id
-   *
    * @return RTC::ReturnCode_t
-   * 
-   * 
    */
    virtual RTC::ReturnCode_t onExecute(RTC::UniqueId ec_id);
 

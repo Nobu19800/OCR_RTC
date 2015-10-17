@@ -44,9 +44,9 @@ static const char* ocr_spec[] =
 // </rtc-template>
 
 /*!
- * @brief constructor
- * @param manager Maneger Object
- */
+* @brief OCR_RTCのコンストラクタ
+* @param マネージャオブジェクト
+*/
 OCR::OCR(RTC::Manager* manager)
     // <rtc-template block="initializer">
   : RTC::DataFlowComponentBase(manager),
@@ -60,14 +60,17 @@ OCR::OCR(RTC::Manager* manager)
 }
 
 /*!
- * @brief destructor
- */
+* @brief OCR_RTCのデストラクタ
+*/
 OCR::~OCR()
 {
 }
 
 
-
+/**
+*@brief 初期化処理用コールバック関数
+* @return RTC::ReturnCode_t
+*/
 RTC::ReturnCode_t OCR::onInitialize()
 {
   // Registration: InPort/OutPort/Service
@@ -116,7 +119,11 @@ RTC::ReturnCode_t OCR::onShutdown(RTC::UniqueId ec_id)
 }
 */
 
-
+/**
+*@brief 活性化時のコールバック関数
+* @param ec_id
+* @return
+*/
 RTC::ReturnCode_t OCR::onActivated(RTC::UniqueId ec_id)
 {
 	m_imageBuff = NULL;
@@ -124,7 +131,11 @@ RTC::ReturnCode_t OCR::onActivated(RTC::UniqueId ec_id)
   return RTC::RTC_OK;
 }
 
-
+/**
+*@brief 不活性化時のコールバック関数
+* @param ec_id target ExecutionContext Id
+* @return RTC::ReturnCode_t
+*/
 RTC::ReturnCode_t OCR::onDeactivated(RTC::UniqueId ec_id)
 {
 	if(m_imageBuff != NULL)
@@ -136,7 +147,11 @@ RTC::ReturnCode_t OCR::onDeactivated(RTC::UniqueId ec_id)
   return RTC::RTC_OK;
 }
 
-
+/**
+*@brief 周期処理用コールバック関数
+* @param ec_id target ExecutionContext Id
+* @return RTC::ReturnCode_t
+*/
 RTC::ReturnCode_t OCR::onExecute(RTC::UniqueId ec_id)
 {
 	MODI::Document ^doc = gcnew MODI::Document();
